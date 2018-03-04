@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Create.css';
 
 import HotSpotList from '../../../components/HotSpot/List/List';
-import ButtonUI from '../../../components/UI/Button/Button';
+import { ButtonUI } from '../../../components/UI';
 
 class ScreenHotSpotList extends Component {
   constructor(props){

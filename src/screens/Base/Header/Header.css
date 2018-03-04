@@ -31,3 +31,6 @@ header menu ul li a {
   font: 1em sans-serif;
   color: #777;
 }
+header menu ul li a:hover {
+  color: #0fc0c7
+}
