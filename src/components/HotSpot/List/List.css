@@ -1,0 +1,38 @@
+.list {
+  width: 100%;
+}
+.list h2 {
+  background: #ebebeb;
+  padding: 10px;
+  font: 1.3em sans-serif;
+  color: #777;
+  margin: 0;
+}
+
+.list ul {
+  padding: 0;
+  margin: 0;
+  display: table;
+  width: 100%;
+}
+.list ul li {
+  list-style: none;
+}
+.list ul > li {
+  display: table-row;
+  vertical-align: middle;
+  border-color: inherit;
+}
+.list ul li > div {
+  display: table-cell;
+  vertical-align: inherit;
+  padding: 20px 10px;
+  border-bottom: #ebebeb solid 1px;
+  font: 1.3em sans-serif;
+  color: #777;
+}
+
+.list ul li .bt {
+  float: right;
+  text-decoration: none;
+}

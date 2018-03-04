@@ -1,0 +1,24 @@
+.iconUI {
+  background: #0fc0c7;
+  width: 34px;
+  height: 34px;
+  display: inline-block;
+  text-align: center;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+}
+.iconUI:before {
+  vertical-align: -10px;
+}
+.iconUI:hover {
+  background: #68D8DA;
+}
+
+.iconUI.delete:before {
+  content: url('./svg/delete.svg');
+}
