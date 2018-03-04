@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
 import './Create.css';
 
+import HotSpotList from '../../../components/HotSpot/List/List';
 import ButtonUI from '../../../components/UI/Button/Button';
 
-class HotSpotList extends Component {
+class ScreenHotSpotList extends Component {
   constructor(props){
     super(props);
     this.state = {
       creating: false,
       labelButton: 'Create HotSpot'
     };
+
+    this.createHotSpot = this.createHotSpot.bind(this);
   }
   render() {
     return (
       <div className="hotSpotList">
         <div className="button">
           <ButtonUI label={this.state.labelButton} handleClick={(e) => this.createHotSpot(e)} />
+        </div>
+
+        <div className="spotList">
+          <HotSpotList />
         </div>
       </div>
     )
@@ -24,17 +31,20 @@ class HotSpotList extends Component {
   createHotSpot() {
 
     if(this.state.creating) {
-      this.state.labelButton = 'Stop HotSpot';
+      this.toogleButton('Create HotSpot');
     } else {
-      this.state.labelButton = 'Create HotSpot';
+      this.toogleButton('Stop HotSpot');
     }
 
-    console.log( this.state.labelButton );
+  }
 
-    this.state.creating = !this.state.creating;
-
+  toogleButton(string) {
+    this.setState({
+      labelButton: string,
+      creating: !this.state.creating
+    })
   }
 
 }
 
-export default HotSpotList;
+export default ScreenHotSpotList;

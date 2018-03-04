@@ -8,6 +8,7 @@ class ButtonUI extends Component {
   render() {
     return (
       <button
+        type="button"
         className="buttonUI"
         onClick={this.props.handleClick}> {this.props.label} </button>
     )

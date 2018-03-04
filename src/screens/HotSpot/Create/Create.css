@@ -3,4 +3,10 @@
 
 .hotSpotList .button {
   text-align: center;
+  margin-top: 30px;
+}
+
+.hotSpotList .spotList {
+  max-width: 450px;
+  margin: 70px auto 0;
 }
