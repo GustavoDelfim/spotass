@@ -19,6 +19,14 @@
   background: #68D8DA;
 }
 
+.iconUI.danger {
+  background: #ff3b3b;
+}
+.iconUI.danger:hover {
+  background: #ff6868
+}
+
+
 .iconUI.delete:before {
   content: url('./svg/delete.svg');
 }

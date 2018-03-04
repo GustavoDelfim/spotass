@@ -7,7 +7,7 @@ class HotSpotDelete extends Component {
     return (
       <a href="javascript:;" className="bt" onClick={this.delete}>
         <TooltipUI text="Delete HotSpot">
-          <IconUI action="delete" />
+          <IconUI action="delete danger" />
         </TooltipUI>
       </a>
     )

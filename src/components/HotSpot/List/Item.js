@@ -6,7 +6,7 @@ class HotSpotItem extends Component {
   render() {
     return (
       <li>
-        <div>das</div>
+        <div>#1 Nome</div>
         <div>
           <HotSpotDelete />
         </div>
