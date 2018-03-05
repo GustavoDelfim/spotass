@@ -2,17 +2,14 @@ import React, { Component } from 'react';
 import './Create.css';
 
 import HotSpotList from '../../../components/HotSpot/List/List';
-import HotSpotCreate from '../../../components/HotSpot/Create';
+import HotSpotButton from '../../../components/HotSpot/Button';
 
 class ScreenHotSpotList extends Component {
-  constructor(props){
-    super(props);
-  }
   render() {
     return (
       <div className="hotSpotList">
         <div className="button">
-          <HotSpotCreate />
+          <HotSpotButton />
         </div>
 
         <div className="spotList">

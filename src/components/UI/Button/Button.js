@@ -9,7 +9,7 @@ class ButtonUI extends Component {
     return (
       <button
         type="button"
-        className="buttonUI"
+        className={`buttonUI ${this.props.bg}`}
         onClick={this.props.handleClick}> {this.props.label} </button>
     )
   }
