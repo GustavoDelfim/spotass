@@ -13,6 +13,13 @@ const toggleCreate = (status) => {
   }
 }
 
+const changeTarget = (target) => {
+  return {
+    type: 'CHANGE_TARGET_HOTSPOT',
+    value: {target: target}
+  }
+}
+
 const addHotSpot = (object) => {
   return {
     type: 'ADD_HOTSPOT',
@@ -20,7 +27,17 @@ const addHotSpot = (object) => {
   }
 }
 
+const removeHotSpot = (index) => {
+  return {
+    type: 'REMOVE_HOTSPOT',
+    value: index
+  }
+}
+
 export {
   toggleButton,
-  toggleCreate
+  toggleCreate,
+  changeTarget,
+  addHotSpot,
+  removeHotSpot
 };

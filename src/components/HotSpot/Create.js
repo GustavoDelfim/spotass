@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { toggleCreate } from './Actions';
+import { toggleCreate, changeTarget, addHotSpot } from './Actions';
 
 const style = {
   container: {
     display: 'flex'
   },
   hover: {
-    width: '200px',
-    height: '200px',
-    border: '#ff3b3b solid 2px',
+    width: 0,
+    height: 0,
+    border: '#ff3b3b solid 1px',
     background: 'rgba(255, 59, 59, 0.1)',
     display: 'none',
     position: 'absolute',
     top: 0,
-    left: 0
+    left: 0,
+    zIndex: -1,
+    boxSizing: 'border-box'
   }
 }
 
@@ -29,7 +31,7 @@ class HotSpotCreate extends Component {
   render() {
     return (
       <div ref="hotSpot" style={style.container} onClick={(e) => this.createPoint(e)}>
-        <span style={style.hover}></span>
+        <span style={style.hover} ref="hoverHotSpot"></span>
         {this.props.children}
       </div>
     )
@@ -46,27 +48,44 @@ class HotSpotCreate extends Component {
   }
 
   createPoint(e) {
+
     if (!this.props.HotSpotCreate.creating) return false
-    console.log(e.nativeEvent.offsetX, e.screenX)
+    e.preventDefault()
+
+    let controllher = e.target.getAttribute('controllher')
+    if(controllher == 'HotSpot') return false
+
+    let spot = {
+      target: e.target,
+      top: e.clientX,
+      left: e.clientY
+    }
+
+    this.props.addHotSpot(spot)
+
+    return false
   }
 
   startHover() {
-    console.log( style.hover.display )
-    // style.hover.display = 'block'
-
+    this.refs.hoverHotSpot.style.display = 'block'
     let hotSpot = this.refs.hotSpot
     hotSpot.addEventListener("mouseover", (e) => this.mouseOver(e))
     hotSpot.addEventListener("mouseout", (e) => this.mouseOut(e))
   }
   stopHover() {
-    let hotSpot = this.refs.hotSpot
-    // style.hover.display = 'none'
+    this.refs.hoverHotSpot.style.display = 'none'
   }
 
   mouseOver(e) {
     if(!this.props.HotSpotCreate.creating) return false
-    console.log(e)
     e.target.classList.add("hoverHotSpot")
+
+    if (this.props.HotSpotCreate.target == e.target) {
+      return false
+    }
+
+    this.props.changeTarget(e.target)
+    this.preparyHover(e.target)
   }
 
   mouseOut(e) {
@@ -74,6 +93,16 @@ class HotSpotCreate extends Component {
     e.target.classList.remove("hoverHotSpot")
   }
 
+  preparyHover(target) {
+    let hover = this.refs.hoverHotSpot
+    let infos = target.getBoundingClientRect();
+
+    hover.style.width = infos.width+'px'
+    hover.style.height = infos.height+'px'
+    hover.style.left = infos.x+'px'
+    hover.style.top = infos.y+'px'
+
+  }
 
 }
 
@@ -82,7 +111,9 @@ const mapStateToProps = state =>  ({
 })
 const mapDispatchToProps = dispatch =>
 bindActionCreators({
-  toggleCreate
+  toggleCreate,
+  changeTarget,
+  addHotSpot
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(HotSpotCreate);

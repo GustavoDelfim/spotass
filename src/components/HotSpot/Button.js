@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import HotSpotCreate from './Create';
 import { toggleButton } from './Actions';
 import { ButtonUI } from '../UI';
 
 class HotSpotButton extends Component {
   render() {
     return (
-      <ButtonUI label={this.props.HotSpotCreate.labelButton} bg={this.props.HotSpotCreate.bgButton} handleClick={(e) => this.createHotSpot(e)} />
+      <ButtonUI label={this.props.HotSpotCreate.labelButton}
+        bg={this.props.HotSpotCreate.bgButton}
+        handleClick={(e) => this.createHotSpot(e)}
+        data={[{controllher: 'HotSpot'}]}/>
     )
   }
 
@@ -29,7 +31,6 @@ class HotSpotButton extends Component {
 
 }
 
-// const mapStateToProps = state =>  state.HotSpotReducer
 const mapStateToProps = state =>  ({
   HotSpotCreate: state.HotSpotReducer
 })

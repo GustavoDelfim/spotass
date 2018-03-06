@@ -1,5 +1,7 @@
 
-.hotSpotList {}
+.hotSpotList {
+  padding-bottom: 50px
+}
 
 .hotSpotList .button {
   text-align: center;
