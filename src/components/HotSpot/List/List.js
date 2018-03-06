@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import PointHotSpot from '../Point/Point';
 import './List.css';
 
 import HotSpotItem from './Item';
 
-class HotSpotListComponent extends Component {
+class HotSpotList extends Component {
   render() {
-    const items = this.props.HotSpotCreate.list.map((item, index) => {
+    const items = this.props.HotSpotList.map((item, index) => {
+      PointHotSpot(item)
       return <HotSpotItem key={index} index={index} />
     });
 
@@ -20,17 +22,13 @@ class HotSpotListComponent extends Component {
       </div>
     )
   }
-
-  componentWillReceiveProps(nextProps) {
-
-  }
 }
 
 const mapStateToProps = state => ({
-  HotSpotCreate: state.HotSpotReducer
+  HotSpotList: state.HotSpotReducer.list
 })
 
 const mapDispatchToProps = dispatch =>
 bindActionCreators({}, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(HotSpotListComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(HotSpotList);
