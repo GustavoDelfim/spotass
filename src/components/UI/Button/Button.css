@@ -18,3 +18,10 @@
 .buttonUI:hover {
   background: #68d8dc;
 }
+.buttonUI.danger {
+  background: #ff3b3b;
+}
+
+.buttonUI.danger:hover {
+  background: #ff6868;
+}

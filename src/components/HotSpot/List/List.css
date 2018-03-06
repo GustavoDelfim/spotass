@@ -17,6 +17,7 @@
 }
 .list ul li {
   list-style: none;
+  background: #fff
 }
 .list ul > li {
   display: table-row;

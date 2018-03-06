@@ -6,9 +6,9 @@ class HotSpotItem extends Component {
   render() {
     return (
       <li>
-        <div>#1 Nome</div>
+        <div>HotSpot #{this.props.index}</div>
         <div>
-          <HotSpotDelete />
+          <HotSpotDelete key={this.props.index} index={this.props.index} />
         </div>
       </li>
     )
