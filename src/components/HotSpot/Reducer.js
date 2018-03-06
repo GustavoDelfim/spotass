@@ -28,7 +28,13 @@ const HotSpotReducer = (state = initialState, action) => {
 
     case 'REMOVE_HOTSPOT':
       let listRemove = state.list;
+
+      console.log( listRemove )
+
       listRemove.splice(action.value, 1)
+
+      console.log( listRemove )
+
       listRemove = {list: listRemove}
       return Object.assign({}, state,  listRemove)
       break;

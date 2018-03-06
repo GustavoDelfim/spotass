@@ -56,6 +56,7 @@ class HotSpotCreate extends Component {
     if(controllher == 'HotSpot') return false
 
     let spot = {
+      label: this.props.HotSpotCreate.list.length,
       target: e.target,
       top: e.clientX,
       left: e.clientY

@@ -16,17 +16,20 @@ class HotSpotDelete extends Component {
   }
 
   delete(index) {
+    alert( index )
     this.props.removeHotSpot(index)
   }
 }
-
-const mapStateToProps = state => ({
-  HotSpotCreate: state.HotSpotReducer
-})
+//
+// const mapStateToProps = state => (
+//   console.log( state.HotSpotReducer ),
+//   {
+//   HotSpotCreator: state.HotSpotReducer
+// })
 
 const mapDispatchToProps = dispatch =>
 bindActionCreators({
   removeHotSpot
 }, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(HotSpotDelete);
+export default connect(null, mapDispatchToProps)(HotSpotDelete);
