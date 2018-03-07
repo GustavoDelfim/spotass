@@ -2,7 +2,7 @@
   width: 30px;
   height: 30px;
   margin: -15px 0 0 -15px;
-  background: #f7c15d;
+  background: #ff6868;
   -webkit-border-radius: 50%;
   border-radius: 50%;
   display: inline-block;
@@ -13,7 +13,7 @@
 .pointHotSpot i {
   width: 6px;
   height: 6px;
-  background: #f7c15d;
+  background: #ff6868;
   display: block;
   -webkit-border-radius: 50%;
   border-radius: 50%;
