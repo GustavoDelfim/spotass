@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { toggleCreate, changeTarget, addHotSpot } from './Actions';
+import { toggleCreate, addHotSpot } from './Actions';
+import PointHotSpot from './Point/Point';
 
 const style = {
   container: {
@@ -29,8 +30,16 @@ class HotSpotCreate extends Component {
     this.mouseOut = this.mouseOut.bind(this);
   }
   render() {
+
+    const points = this.props.HotSpotCreate.list.map((item, index) => {
+      return <PointHotSpot key={index} item={item} />
+    });
+
     return (
+
       <div ref="hotSpot" style={style.container} onClick={(e) => this.createPoint(e)}>
+        {points}
+
         <span style={style.hover} ref="hoverHotSpot"></span>
         {this.props.children}
       </div>
@@ -58,8 +67,10 @@ class HotSpotCreate extends Component {
     let spot = {
       label: this.props.HotSpotCreate.list.length,
       target: e.target,
-      top: e.clientX,
-      left: e.clientY
+      targetTop: e.clientY,
+      targetLeft: e.clientX,
+      pageTop: e.pageY,
+      pageLeft: e.pageX
     }
 
     this.props.addHotSpot(spot)
@@ -85,7 +96,6 @@ class HotSpotCreate extends Component {
       return false
     }
 
-    this.props.changeTarget(e.target)
     this.preparyHover(e.target)
   }
 
@@ -113,7 +123,6 @@ const mapStateToProps = state =>  ({
 const mapDispatchToProps = dispatch =>
 bindActionCreators({
   toggleCreate,
-  changeTarget,
   addHotSpot
 }, dispatch)
 
