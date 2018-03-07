@@ -66,7 +66,7 @@ class HotSpotCreate extends Component {
 
     let spot = {
       label: this.props.HotSpotCreate.list.length,
-      target: e.target,
+      // target: e.target,
       targetTop: e.clientY,
       targetLeft: e.clientX,
       pageTop: e.pageY,
