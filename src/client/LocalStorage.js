@@ -17,7 +17,7 @@ const saveState = (state) => {
     var pretty = objectStringify(state);
     localStorage.setItem('state', pretty)
   } catch(err) {
-    console.log(err)
+    // ignore
   }
 }
 

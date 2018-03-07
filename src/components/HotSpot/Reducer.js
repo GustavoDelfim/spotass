@@ -3,7 +3,8 @@ let initialState = {
   labelButton: 'Create HotSpot',
   bgButton: '',
   target: null,
-  list: []
+  list: [],
+  totalList: 0
 }
 
 const HotSpotReducer = (state = initialState, action) => {
@@ -22,6 +23,7 @@ const HotSpotReducer = (state = initialState, action) => {
 
     case 'ADD_HOTSPOT':
       let list = state.list;
+      action.value.label = state.totalList++
       list = {list: list.concat(action.value)}
       return Object.assign({}, state,  list)
       break;
